@@ -2,15 +2,15 @@
 
 ```mermaid
 flowchart TD
-    subgraph 週次(金曜)
-        A1[歴史CSV<br/>(Kaggle)] --> F[特徴量ストア]
+    subgraph 週次_金曜
+        A1[歴史CSV<br/>Kaggle] --> F[特徴量ストア]
         A2[出馬表PDF] --> F
         A3[馬場&天気] --> F
         F -->|再学習| M[Stacked-MLモデル]
     end
-    subgraph 当日(土日)
+    subgraph 当日-土日
         F --> M
-        M --> P̂[確率P̂] --> C[ROI&CLV]
+        M --> P-確率P --> C[ROI&CLV]
         A4[2分毎オッズ] --> C
         C -->|300/100/ケン| B{BET?}
         B -->|Yes| S[PAT送信]
