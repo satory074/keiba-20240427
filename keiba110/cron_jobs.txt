@@ -1,0 +1,7 @@
+# 金曜
+0 9  * * 5  python src/00_fetch/fetch_baba.py
+0 23 * * 5  python pipeline_weekly.sh
+# 土日
+5 6,11 * * 6,7 python src/00_fetch/fetch_baba.py
+*/2 7-16 * * 6,7 python src/30_live/live_bet.py
+0 17 * * 6,7 python src/40_dashboard/update_kpi.py
